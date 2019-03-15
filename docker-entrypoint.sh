@@ -1,5 +1,18 @@
 #!/bin/bash
 
+# Set database config from Heroku DATABASE_URL
+
+if [ "$DATABASE_URL" != "" ]; then
+    regex="^postgres://([a-zA-Z_-]):([a-zA-Z])@([a-z-]):([[:digit:]])/([a-zA-Z_-]*)$"
+    [[ $DATABASE_URL =~ $regex ]]
+    export DB_ADDR=${BASH_REMATCH[3]}
+    export DB_PORT=${BASH_REMATCH[4]}
+    export DB_DATABASE=${BASH_REMATCH[5]}
+    export DB_USER=${BASH_REMATCH[1]}
+    export DB_PASSWORD=${BASH_REMATCH[2]}
+fi
+
+
 # usage: file_env VAR [DEFAULT]
 #    ie: file_env 'XYZ_DB_PASSWORD' 'example'
 # (will allow for "$XYZ_DB_PASSWORD_FILE" to fill in the value of
