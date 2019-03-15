@@ -13,6 +13,7 @@ if [ "$DATABASE_URL" != "" ]; then
         export DB_PASSWORD=${BASH_REMATCH[2]}
 
         echo "DB_ADDR=$DB_ADDR, DB_PORT=$DB_PORT, DB_DATABASE=$DB_DATABASE, DB_USER=$DB_USER, DB_PASSWORD=$DB_PASSWORD"
+        export DB_VENDOR=postgres
     fi
 
 fi
