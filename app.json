@@ -1,0 +1,40 @@
+{
+    "name": "Keycloak Deployment to Heroku",
+    "description": "Deployment of the Keycloak Identity and Access Management Solution to Heroku using a slightly adapted version of the official Docker container image",
+    "keywords": [
+        "identity",
+        "oauth",
+        "saml",
+        "keycloak",
+        "heroku"
+    ],
+    "stack": "container",
+    "repository": "https://github.com/mieckert/keycloak-heroku",
+    "logo": "https://www.keycloak.org/resources/images/keycloak_logo_480x108.png",
+    "success_url": "/",
+    "env": {
+        "KEYCLOAK_USER": {
+            "description": "(Initial Admin user name",
+                "value": "admin"
+        },
+        "KEYCLOAK_PASSWORD": {
+            "description": "Initial Admin password",
+            "generator": "change_me"
+        },
+        "PROXY_ADDRESS_FORWARDING": {
+            "description": "Set to true since we will be running behind Heroku's load balancers",
+            "value": "true"
+        }
+    },
+    "formation": {
+        "web": {
+            "quantity": 1,
+            "size": "Performance-M"
+        }
+    },
+    "addons": [
+        {
+            "plan": "heroku-postgresql:hobby-dev"
+        }
+    ]
+}
