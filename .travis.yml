@@ -14,4 +14,4 @@ script:
   - docker build -t "$DOCKER_USERNAME"/keycloak .
   - docker images
   - docker push "$DOCKER_USERNAME"/keycloak
-  - kubectl apply -f okteto/k8s.yml
+  # - kubectl apply -f okteto/k8s.yml
