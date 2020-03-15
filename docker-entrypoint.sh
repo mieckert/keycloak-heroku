@@ -194,5 +194,10 @@ fi
 
 echo "------------>>>>> Starting Keycloak... <<<<<<<-------------------"
 
-exec /opt/jboss/keycloak/bin/standalone.sh
+if [ "$OKTETO" != "OKTETO" ]; then
+    exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT 
+else
+    exec /opt/jboss/tools/docker-entrypoint.sh
+fi
+
 exit $?
