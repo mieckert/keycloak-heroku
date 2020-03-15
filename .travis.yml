@@ -11,7 +11,7 @@ env:
   ci: true
 script:
   - kubectl get pods
-  - docker build -t "$DOCKER_USERNAME"/keycloak .
+  - docker build -t "$DOCKER_USERNAME"/keycloak-heroku .
   - docker images
-  - docker push "$DOCKER_USERNAME"/keycloak
+  - docker push "$DOCKER_USERNAME"/keycloak-heroku
   # - kubectl apply -f okteto/k8s.yml

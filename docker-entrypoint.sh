@@ -180,24 +180,13 @@ if [ "$DB_VENDOR" != "h2" ]; then
     /bin/sh /opt/jboss/tools/databases/change-database.sh $DB_VENDOR
 fi
 
-if [ "$OKTETO" != "OKTETO" ]; then
-
-    /opt/jboss/tools/x509.sh
-    /opt/jboss/tools/jgroups.sh $JGROUPS_DISCOVERY_PROTOCOL $JGROUPS_DISCOVERY_PROPERTIES
-    /opt/jboss/tools/autorun.sh
-
-fi
+/opt/jboss/tools/x509.sh
+/opt/jboss/tools/jgroups.sh $JGROUPS_DISCOVERY_PROTOCOL $JGROUPS_DISCOVERY_PROPERTIES
+/opt/jboss/tools/autorun.sh
 
 ##################
 # Start Keycloak #
 ##################
 
-echo "------------>>>>> Starting Keycloak... <<<<<<<-------------------"
-
-if [ "$OKTETO" != "OKTETO" ]; then
-    exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT 
-else
-    exec /opt/jboss/tools/docker-entrypoint.sh
-fi
-
+exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT 
 exit $?
