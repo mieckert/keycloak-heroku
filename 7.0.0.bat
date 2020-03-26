@@ -1,0 +1,1 @@
+docker run --rm -ti --entrypoint bash jboss/keycloak:7.0.0 -c "cat /usr/lib/jvm/java-1.8.0-openjdk-*/jre/lib/security/java.security | grep -v ^# | grep -v ^$"

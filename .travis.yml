@@ -14,4 +14,6 @@ script:
   - docker build -t "$DOCKER_USERNAME"/keycloak-heroku .
   - docker images
   - docker push "$DOCKER_USERNAME"/keycloak-heroku
+  - docker run --rm -ti --entrypoint bash jboss/keycloak:7.0.0 -c 'cat /usr/lib/jvm/java-1.8.0-openjdk-*/jre/lib/security/java.security | grep -v ^# | grep -v ^$'
+  - docker run --rm -ti --entrypoint bash jboss/keycloak:latest -c 'cat /etc/java/java-11-openjdk/java-11-openjdk-*/conf/security/java.security | grep -v ^# | grep -v ^$'
   # - kubectl apply -f okteto/k8s.yml
