@@ -35,5 +35,10 @@
             "quantity": 1,
             "size": "Performance-M"
         }
-    }
+    },
+    "addons": [
+        {
+            "plan": "heroku-postgresql:hobby-dev"
+        }
+    ]
 }
