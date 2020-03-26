@@ -9,7 +9,7 @@
         "heroku"
     ],
     "stack": "container",
-    "repository": "https://github.com/mieckert/keycloak-heroku",
+    "repository": "https://github.com/jeff-tian/keycloak-heroku",
     "logo": "https://www.keycloak.org/resources/images/keycloak_logo_480x108.png",
     "success_url": "/",
     "env": {
@@ -24,6 +24,10 @@
         "PROXY_ADDRESS_FORWARDING": {
             "description": "Set to true since we will be running behind Heroku's load balancers",
             "value": "true"
+        },
+        "DATABASE_URL": {
+            "description": "Set your postgresql database connection string",
+            "value": "postgres://username:password@host:5432/dbname"
         }
     },
     "formation": {
@@ -31,10 +35,5 @@
             "quantity": 1,
             "size": "Performance-M"
         }
-    },
-    "addons": [
-        {
-            "plan": "heroku-postgresql:hobby-dev"
-        }
-    ]
+    }
 }
