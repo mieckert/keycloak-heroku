@@ -1,3 +1,0 @@
-name: keycloak
-image: jefftian/keycloak:latest
-workdir: /
