@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set database config from Heroku DATABASE_URL
-if [ "$DATABASE_URL" != "" ]; then
+if [ "$DATABASE_URL" != "" ] && [ "$DB_ADDR" == "" ]; then
     echo "Found database configuration in DATABASE_URL=$DATABASE_URL"
 
     regex='^postgres://([a-zA-Z0-9_-]+):([a-zA-Z0-9]+)@([a-z0-9.-]+):([[:digit:]]+)/([a-zA-Z0-9_-]+)$'
