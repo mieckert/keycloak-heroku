@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "entry poing !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-
 # Set database config from Heroku DATABASE_URL
 if [ "$DATABASE_URL" != "" ]; then
     echo "Found database configuration in DATABASE_URL=$DATABASE_URL"
@@ -190,5 +188,5 @@ fi
 # Start Keycloak #
 ##################
 
-exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT 
+exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT
 exit $?
