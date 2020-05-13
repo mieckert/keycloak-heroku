@@ -10,12 +10,12 @@ COPY idps/wechat-qr-code/7.0.1 /opt/jboss/keycloak/themes/base/admin/resources/p
 
 COPY idps/wechat-qr-code/7.0.1 /opt/jboss/keycloak/themes/base/admin/resources/partials
 
-COPY idps/wechat-mobile/0.0.3/keycloak-services-social-weixin-0.0.3.jar /opt/jboss/keycloak/providers/
+COPY idps/wechat-mobile/0.0.4/keycloak-services-social-weixin-0.0.4.jar /opt/jboss/keycloak/providers/
 
-COPY idps/wechat-mobile/0.0.3 \
+COPY idps/wechat-mobile/0.0.4 \
     /opt/jboss/keycloak/themes/base/admin/resources/partials
 
-COPY idps/wechat-mobile/0.0.3 /opt/jboss/keycloak/themes/base/admin/resources/partials
+COPY idps/wechat-mobile/0.0.4 /opt/jboss/keycloak/themes/base/admin/resources/partials
 
 ENTRYPOINT [ "/opt/jboss/tools/docker-entrypoint.sh" ]
 CMD ["-b", "0.0.0.0"]
