@@ -1,19 +1,12 @@
 services:
   - docker
 install:
-  - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-  - chmod +x ./kubectl
-  - sudo mv ./kubectl /usr/local/bin/kubectl
-  - mkdir ${HOME}/.kube
-  - echo "$OKTETO_CONFIG" | base64 --decode > ${HOME}/.kube/config
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 env:
   ci: true
 script:
-  - kubectl get pods
   - docker build -t "$DOCKER_USERNAME"/keycloak-heroku .
   - docker images
   - docker push "$DOCKER_USERNAME"/keycloak-heroku
   - docker run --rm -ti --entrypoint bash jboss/keycloak:7.0.0 -c 'cat /usr/lib/jvm/java-1.8.0-openjdk-*/jre/lib/security/java.security | grep -v ^# | grep -v ^$'
   - docker run --rm -ti --entrypoint bash jboss/keycloak:latest -c 'cat /etc/java/java-11-openjdk/java-11-openjdk-*/conf/security/java.security | grep -v ^# | grep -v ^$'
-  # - kubectl apply -f okteto/k8s.yml
