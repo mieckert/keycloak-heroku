@@ -13,6 +13,14 @@ COPY idps/wechat-mobile/templates/realm-identity-provider-weixin-ext.html \
 COPY idps/wechat-mobile/templates/realm-identity-provider-weixin.html \
     /opt/jboss/keycloak/themes/base/admin/resources/partials
 
+#
+#COPY idps/sms/keycloak-sms-authenticator.jar \
+#    /opt/jboss/keycloak/providers/
+#COPY idps/sms/templates/sms-validation.ftl \
+#    /opt/jboss/keycloak/themes/base/login/
+#COPY idps/sms/templates/sms-validation-error.ftl \
+#    /opt/jboss/keycloak/themes/base/login/
+
 ENTRYPOINT [ "/opt/jboss/tools/docker-entrypoint.sh" ]
 CMD ["-b", "0.0.0.0"]
 
