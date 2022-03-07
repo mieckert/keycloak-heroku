@@ -24,7 +24,7 @@ COPY idps/wecom/templates/realm-identity-provider-wechat-work-ext.html \
     /opt/jboss/keycloak/themes/base/admin/resources/partials
 
 # add `<module name="org.infinispan" services="import"/>` to dependencies
-sed -ie 's#<dependencies>#<dependencies><module name="org.infinispan" services="import"/>#' /opt/jboss/keycloak/modules/system/layers/keycloak/org/keycloak/keycloak-services/main/module.xml
+RUN sed -ie 's#<dependencies>#<dependencies><module name="org.infinispan" services="import"/>#' /opt/jboss/keycloak/modules/system/layers/keycloak/org/keycloak/keycloak-services/main/module.xml
 
 #
 #COPY idps/sms/keycloak-sms-authenticator.jar \
