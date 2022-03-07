@@ -4,8 +4,6 @@ FROM jboss/keycloak:latest
 COPY docker-entrypoint.sh /opt/jboss/tools
 COPY --from=openjdk /usr/local/openjdk-11/conf/security/java.security /etc/alternatives/jre/conf/security/
 
-RUN $KEYCLOAK_HOME=/opt/jboss/keycloak
-
 COPY idps/wechat-mobile/keycloak-services-social-weixin.jar \
     /opt/jboss/keycloak/providers/
 
