@@ -13,6 +13,8 @@ COPY idps/wechat-mobile/templates/realm-identity-provider-weixin-ext.html \
 COPY idps/wechat-mobile/templates/realm-identity-provider-weixin.html \
     /opt/jboss/keycloak/themes/base/admin/resources/partials
 
+RUN sed -ie 's#<dependencies>#<dependencies><module name="com.google.code.gson" services="import"/>#' /opt/jboss/keycloak/modules/system/layers/keycloak/org/keycloak/keycloak-services/main/module.xml
+
 COPY idps/wecom/keycloak-services-social-wechat-work.jar \
     /opt/jboss/keycloak/providers/
 
