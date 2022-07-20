@@ -6,7 +6,8 @@
         "oauth",
         "saml",
         "keycloak",
-        "heroku"
+        "heroku",
+        "sso"
     ],
     "stack": "container",
     "repository": "https://github.com/jeff-tian/keycloak-heroku",
