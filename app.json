@@ -1,13 +1,17 @@
 {
-    "name": "Keycloak Deployment to Heroku",
-    "description": "Deployment of the Keycloak Identity and Access Management Solution to Heroku using a slightly adapted version of the official Docker container image",
+    "name": "Keycloak Deployment to Heroku 将 Keycloak 部署到 Heroku 平台",
+    "description": "Deployment of the Keycloak Identity and Access Management Solution to Heroku using a slightly adapted version of the official Docker container image. 将 Keycloak 官方的 Docker 容器镜像做一些修改后部署到 Heroku 平台。",
     "keywords": [
         "identity",
         "oauth",
         "saml",
         "keycloak",
         "heroku",
-        "sso"
+        "sso",
+        "单点登录",
+        "身份认证",
+        "IdP",
+        "authentication"
     ],
     "stack": "container",
     "repository": "https://github.com/jeff-tian/keycloak-heroku",
@@ -15,26 +19,26 @@
     "success_url": "/",
     "env": {
         "KEYCLOAK_USER": {
-            "description": "Initial Admin user name",
+            "description": "Initial Admin user name 初始化管理员用户名",
             "value": "admin"
         },
         "KEYCLOAK_PASSWORD": {
-            "description": "Initial Admin password",
+            "description": "Initial Admin password 初始化管理员密码",
             "value": "change_me"
         },
         "PROXY_ADDRESS_FORWARDING": {
-            "description": "Set to true since we will be running behind Heroku's load balancers",
+            "description": "Set to true since we will be running behind Heroku's load balancers 如果是运行在 Heroku 的负载均衡器上，请设置为 true",
             "value": "true"
         },
         "DATABASE_URL": {
-            "description": "Set your postgresql database connection string",
+            "description": "Set your postgresql database connection string 如果你有自己的数据库，可以在这里替换自己的连接字符串；如果没有，可以留空直接部署一个 Keycloak 实例先。然后在完成后，把这个字符串替换成 Heroku 自动分配的数据库地址，如 HEROKU_POSTGRESQL_TEAL_URL 环境变量对应的值。",
             "value": "postgres://username:password@host:5432/dbname"
         }
     },
     "formation": {
         "web": {
             "quantity": 1,
-            "size": "Performance-M"
+            "size": "Free"
         }
     },
     "addons": [
