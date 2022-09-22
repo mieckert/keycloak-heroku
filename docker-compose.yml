@@ -2,11 +2,12 @@ version: '3'
 
 services:
   keycloak:
-      image: quay.io/keycloak/keycloak:latest
+      build: 
+        context: .
+        dockerfile: Dockerfile.test
       environment:
         KEYCLOAK_ADMIN: admin
         KEYCLOAK_ADMIN_PASSWORD: admin
       ports:
         - 8080:8080
-      command:
-        - start-dev
+        - 9990:9990

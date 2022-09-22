@@ -1,2 +1,18 @@
 FROM quay.io/keycloak/keycloak:latest
+
+COPY idps/wechat-mobile/keycloak-services-social-weixin.jar \
+    /opt/keycloak/providers/
+COPY idps/wechat-mobile/templates/realm-identity-provider-weixin-ext.html \
+    /opt/keycloak/themes/base/admin/resources/partials
+COPY idps/wechat-mobile/templates/realm-identity-provider-weixin.html \
+    /opt/keycloak/themes/base/admin/resources/partials
+
+COPY idps/wecom/keycloak-services-social-wechat-work.jar \
+    /opt/keycloak/providers/
+COPY idps/wecom/templates/realm-identity-provider-wechat-work.html \
+    /opt/keycloak/themes/base/admin/resources/partials
+COPY idps/wecom/templates/realm-identity-provider-wechat-work-ext.html \
+    /opt/keycloak/themes/base/admin/resources/partials
+
+
 CMD ["start-dev", "--hostname-strict=false"]
