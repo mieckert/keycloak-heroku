@@ -42,9 +42,9 @@ spec:
             requests:
               cpu: 250m
               memory: 256Mi
-          envFrom:
-            - secretRef:
-                name: keycloak-secrets
+#          envFrom:
+#            - secretRef:
+#                name: keycloak-secrets
       #          readinessProbe:
       #            httpGet:
       #              port: 8080
