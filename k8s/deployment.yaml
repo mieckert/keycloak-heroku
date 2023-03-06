@@ -45,9 +45,9 @@ spec:
           envFrom:
             - secretRef:
                 name: keycloak-secrets
-                readinessProbe:
-                  httpGet:
-                    port: 8080
-                    path: /
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
