@@ -26,6 +26,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - run: mkdir ${HOME}/.aws
+      - run: echo -e "[lambda-doc-rotary]\naws_access_key_id = ${{secrets.AWS_ACCESS_KEY}}\naws_secret_access_key = ${{secrets.AWS_SECRET_KEY}}\n" > ~/.aws/config
+      - run: wget https://github.com/mozilla/sops/releases/download/v3.7.3/sops-v3.7.3.linux.amd64
+      - run: sudo cp sops-v3.7.3.linux.amd64 /usr/local/bin/sops
+      - run: sudo chmod +x /usr/local/bin/sops
+
+
       - run: curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
       - run: chmod +x ./kubectl
       - run: sudo mv ./kubectl /usr/local/bin/kubectl
@@ -34,5 +41,6 @@ jobs:
       - run: echo -e "machine github.com\n  login ${{secrets.GH_TOKEN}}" > ~/.netrc
       - run: git clone https://github.com/Jeff-Tian/k8s-config.git ${HOME}/k8s-config
       - run: k8ss switch --cluster=okteto --namespace=jeff-tian
+      - run: sops -d k8s/secrets.yaml --aws-profile lambda-doc-rotary | kubectl apply -f -
       - run: kubectl apply -k k8s
       - run: kubectl set image deployment keycloak keycloak=jefftian/keycloak:${{ github.sha }}

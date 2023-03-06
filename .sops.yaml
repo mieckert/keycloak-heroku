@@ -1,0 +1,6 @@
+creation_rules:
+  # If assuming roles for another account use "arn+role_arn".
+  # See Advanced usage
+  - path_regex: k8s\/secrets\.yaml$
+    kms: "arn:aws:kms:us-east-1:443862765029:key/b1739688-ec15-407d-895d-d05ca1217a2f"
+    aws_profile: lambda-doc-rotary
