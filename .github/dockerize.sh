@@ -1,7 +1,6 @@
 docker build -f Dockerfile.test -t jefftian/keycloak:"$1" .
 docker images
-docker run --network host -e CI=true -d -p 127.0.0.1:8080:8080 --name keycloak:"$1"
-jefftian/keycloak
+docker run --network host -e CI=true -d -p 127.0.0.1:8080:8080 --name keycloak:"$1" jefftian/keycloak
 docker ps | grep -q keycloak
 docker ps -aqf "name=keycloak$"
 docker push jefftian/keycloak:"$1"
