@@ -20,4 +20,6 @@ COPY  ui/font_iconfont /opt/keycloak/themes/keycloak/common/resources/lib/font_i
 COPY  ui/theme.properties /opt/keycloak/themes/keycloak/login/
 COPY  target/keycloak-justauth-12.0.1-jar-with-dependencies.jar /opt/keycloak/providers/
 
-CMD ["start-dev", "--hostname-strict=false"]
+ENV KEYCLOAK_FRONTEND_HEADERS_FRAME_SRC="frame-src *;"
+
+CMD ["start-dev", "--hostname-strict=false -Dkeycloak.frontend.headers.frame-src=\"$KEYCLOAK_FRONTEND_HEADERS_FRAME_SRC\""]
