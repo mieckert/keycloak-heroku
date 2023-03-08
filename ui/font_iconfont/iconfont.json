@@ -1,0 +1,205 @@
+{
+  "id": "2324465",
+  "name": "keycloak",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3876347",
+      "name": "line",
+      "font_class": "line",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "11728760",
+      "name": "slack",
+      "font_class": "slack",
+      "unicode": "e747",
+      "unicode_decimal": 59207
+    },
+    {
+      "icon_id": "20210304",
+      "name": "amazon",
+      "font_class": "amazon",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "20611352",
+      "name": "okta",
+      "font_class": "okta",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "8391890",
+      "name": "喜马拉雅电台",
+      "font_class": "ximalayadiantai",
+      "unicode": "e7bd",
+      "unicode_decimal": 59325
+    },
+    {
+      "icon_id": "471589",
+      "name": "美团",
+      "font_class": "iconpingtaimeituan01",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "592835",
+      "name": "baidu",
+      "font_class": "baidu",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "724439",
+      "name": "qq",
+      "font_class": "ai-qq",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "749907",
+      "name": "alipay",
+      "font_class": "alipay",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "840782",
+      "name": "小米",
+      "font_class": "xiaomi",
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    },
+    {
+      "icon_id": "1049698",
+      "name": "weibo",
+      "font_class": "weibo",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "1898979",
+      "name": "renren",
+      "font_class": "renren",
+      "unicode": "e703",
+      "unicode_decimal": 59139
+    },
+    {
+      "icon_id": "2041688",
+      "name": "CN_csdn.net",
+      "font_class": "CN_csdnnet",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "2966983",
+      "name": "品牌标识-taobao",
+      "font_class": "taobao",
+      "unicode": "e709",
+      "unicode_decimal": 59145
+    },
+    {
+      "icon_id": "6154432",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e82c",
+      "unicode_decimal": 59436
+    },
+    {
+      "icon_id": "6705504",
+      "name": "酷家乐icon",
+      "font_class": "kujialeicon",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "7338486",
+      "name": "oschina",
+      "font_class": "oschina_grey",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "8620090",
+      "name": "pinterest",
+      "font_class": "pinterest",
+      "unicode": "e7a8",
+      "unicode_decimal": 59304
+    },
+    {
+      "icon_id": "11205433",
+      "name": "饿了么",
+      "font_class": "changyonglogo40",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "13253910",
+      "name": "dingding",
+      "font_class": "dingding",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "13743932",
+      "name": "gitee-fill-round",
+      "font_class": "gitee-fill-round",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "15378459",
+      "name": "huawei",
+      "font_class": "huawei",
+      "unicode": "ebc3",
+      "unicode_decimal": 60355
+    },
+    {
+      "icon_id": "15475804",
+      "name": "阿里云",
+      "font_class": "aliyun",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "15989503",
+      "name": "头条样式",
+      "font_class": "toutiaoyangshi",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "16397633",
+      "name": "teambition",
+      "font_class": "teambition",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "18166694",
+      "name": "抖音",
+      "font_class": "douyin",
+      "unicode": "e8db",
+      "unicode_decimal": 59611
+    },
+    {
+      "icon_id": "19118810",
+      "name": "PC端_飞书",
+      "font_class": "PCduan_feishu",
+      "unicode": "e7a2",
+      "unicode_decimal": 59298
+    },
+    {
+      "icon_id": "15643736",
+      "name": "企业微信",
+      "font_class": "qiyeweixin",
+      "unicode": "e6af",
+      "unicode_decimal": 59055
+    }
+  ]
+}

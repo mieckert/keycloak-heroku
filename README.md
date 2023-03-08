@@ -15,16 +15,24 @@ Dyno，从而不需要付费，免费拥有一个 Keycloak 实例。
 ### 注意 ⚠️
 
 详见《[Free Arch: Bye-bye to Heroku - Jeff Tian的文章 - 知乎](https://zhuanlan.zhihu.com/p/567187898)》，Heroku 不再提供免费
-Dyno，因此，部署该项目到 Heroku，可能会产生费用。
+Dyno，因此，部署该项目到 Heroku，可能会产生费用。替代方案：部署到 Okteto。
 
 ## 更多说明：
 
-- [FreeArch: 一键拥有你自己的身份认证平台 Keycloak，完全免费！
+- [FreeArch: 一键拥有你自己的身份认证平台 Keycloak！
   ](https://zhuanlan.zhihu.com/p/554534245)
+- [【免费架构】Heroku 不免费了，何去何从之 Keycloak 的容器化部署之路 - Jeff Tian的文章 - 知乎](https://zhuanlan.zhihu.com/p/611823061)
 
 ## Star 历史
 
 ![https://api.star-history.com/svg?repos=jeff-tian/keycloak-heroku&type=Date](https://api.star-history.com/svg?repos=jeff-tian/keycloak-heroku&type=Date "Star History")
+
+## 开发
+
+```shell
+mvn clean install
+docker compose up --build
+```
 
 ## English README
 
