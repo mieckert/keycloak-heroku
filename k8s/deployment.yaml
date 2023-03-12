@@ -51,6 +51,6 @@ spec:
           readinessProbe:
             httpGet:
               port: 8080
-              path: /auth/realms/master
+              path: /
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
