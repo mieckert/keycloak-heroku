@@ -8,6 +8,8 @@ services:
       environment:
         KEYCLOAK_ADMIN: admin
         KEYCLOAK_ADMIN_PASSWORD: admin
+        PORT: 8080
+        DB_VENDOR: "h2"
       ports:
         - 8080:8080
         - 9990:9990
