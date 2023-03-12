@@ -34,6 +34,12 @@ mvn clean install
 docker compose up --build
 ```
 
+## 欢迎问我！
+
+有任何相关问题，欢迎来知乎咨询：
+
+<a href="https://www.zhihu.com/consult/people/1073548674713423872" target="blank"><img src="https://first-go-vercel.vercel.app/api/dynamicimage" alt="向我咨询"/></a>
+
 ## English README
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)

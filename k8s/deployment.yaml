@@ -35,6 +35,9 @@ spec:
             - containerPort: 8080
               name: http
               protocol: TCP
+            - containerPort: 8443
+              name: https
+              protocol: TCP
           resources:
             limits:
               cpu: 1000m
@@ -48,6 +51,6 @@ spec:
           readinessProbe:
             httpGet:
               port: 8080
-              path: /
+              path: /auth/realms/master
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
