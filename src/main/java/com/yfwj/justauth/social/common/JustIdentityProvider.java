@@ -32,11 +32,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import java.lang.reflect.Constructor;
 
-/**
- * @author yanfeiwuji
- * @date 2021/1/10 4:37 下午
- */
-
+import javax.ws.rs.core.UriInfo;
 
 public class JustIdentityProvider extends AbstractOAuth2IdentityProvider<JustIdentityProviderConfig> implements SocialIdentityProvider<JustIdentityProviderConfig> {
 
@@ -95,6 +91,8 @@ public class JustIdentityProvider extends AbstractOAuth2IdentityProvider<JustIde
     protected ClientConnection clientConnection;
     @Context
     protected HttpHeaders headers;
+    @Context
+    protected UriInfo uriInfo;
 
 
     public Endpoint(AuthenticationCallback callback, RealmModel realm, EventBuilder event) {
@@ -109,8 +107,7 @@ public class JustIdentityProvider extends AbstractOAuth2IdentityProvider<JustIde
                                  @QueryParam("error") String error) {
       AuthCallback authCallback = AuthCallback.builder().code(authorizationCode).state(state).build();
 
-      // 没有check 不通过
-      String redirectUri = "https://www.yfwj.com";
+      String redirectUri = uriInfo.getAbsolutePath().toString();
       AuthRequest authRequest = getAuthRequest(AUTH_CONFIG, redirectUri);
       AuthResponse<AuthUser> response = authRequest.login(authCallback);
 

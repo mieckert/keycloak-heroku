@@ -18,7 +18,7 @@ public class DingTalkIdentityProviderFactory extends
   AbstractIdentityProviderFactory<JustIdentityProvider>
   implements SocialIdentityProviderFactory<JustIdentityProvider> {
 
-  public static final JustAuthKey JUST_AUTH_KEY = JustAuthKey.  DING_TALK;
+  public static final JustAuthKey JUST_AUTH_KEY = JustAuthKey.DING_TALK;
 
   @Override
   public String getName() {
