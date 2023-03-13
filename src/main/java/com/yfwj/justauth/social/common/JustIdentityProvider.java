@@ -116,35 +116,41 @@ public class JustIdentityProvider extends AbstractOAuth2IdentityProvider<JustIde
 
       String redirectUri = uriInfo.getAbsolutePath().toString();
       AuthRequest authRequest = getAuthRequest(AUTH_CONFIG, redirectUri);
-      AuthResponse<AuthUser> response = authRequest.login(authCallback);
+      try {
+        AuthResponse<AuthUser> response = authRequest.login(authCallback);
 
+        if (response.ok()) {
+          AuthUser authUser = response.getData();
+          JustIdentityProviderConfig config = JustIdentityProvider.this.getConfig();
+          BrokeredIdentityContext federatedIdentity = new BrokeredIdentityContext(authUser.getUuid());
+          authUser.getRawUserInfo().forEach((k, v) -> {
+            String value = (v instanceof String) ? v.toString() : JSONObject.toJSONString(v);
+            // v  不能过长
+            federatedIdentity.setUserAttribute(config.getAlias() + "-" + k, value);
+          });
 
-      if (response.ok()) {
-        AuthUser authUser = response.getData();
-        JustIdentityProviderConfig config = JustIdentityProvider.this.getConfig();
-        BrokeredIdentityContext federatedIdentity = new BrokeredIdentityContext(authUser.getUuid());
-        authUser.getRawUserInfo().forEach((k, v) -> {
-          String value = (v instanceof String) ? v.toString() : JSONObject.toJSONString(v);
-          // v  不能过长
-          federatedIdentity.setUserAttribute(config.getAlias() + "-" + k, value);
-        });
-
-        if (getConfig().isStoreToken()) {
-          // make sure that token wasn't already set by getFederatedIdentity();
-          // want to be able to allow provider to set the token itself.
-          if (federatedIdentity.getToken() == null) {
-            federatedIdentity.setToken(authUser.getToken().getAccessToken());
+          if (getConfig().isStoreToken()) {
+            // make sure that token wasn't already set by getFederatedIdentity();
+            // want to be able to allow provider to set the token itself.
+            if (federatedIdentity.getToken() == null) {
+              federatedIdentity.setToken(authUser.getToken().getAccessToken());
+            }
           }
+
+          federatedIdentity.setUsername(authUser.getUuid());
+          federatedIdentity.setBrokerUserId(authUser.getUuid());
+          federatedIdentity.setIdpConfig(config);
+          federatedIdentity.setIdp(JustIdentityProvider.this);
+          federatedIdentity.setCode(state);
+
+          return this.callback.authenticated(federatedIdentity);
+        } else {
+          return this.errorIdentityProviderLogin("identityProviderUnexpectedErrorMessage");
         }
+      }catch(Exception e){
+        logger.error("authResponse met error: " + e.getMessage());
+        e.printStackTrace();
 
-        federatedIdentity.setUsername(authUser.getUuid());
-        federatedIdentity.setBrokerUserId(authUser.getUuid());
-        federatedIdentity.setIdpConfig(config);
-        federatedIdentity.setIdp(JustIdentityProvider.this);
-        federatedIdentity.setCode(state);
-
-        return this.callback.authenticated(federatedIdentity);
-      } else {
         return this.errorIdentityProviderLogin("identityProviderUnexpectedErrorMessage");
       }
     }
