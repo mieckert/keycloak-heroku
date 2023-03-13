@@ -59,6 +59,8 @@ public class JustIdentityProvider extends AbstractOAuth2IdentityProvider<JustIde
   }
 
   private AuthRequest getAuthRequest(AuthConfig authConfig, String redirectUri) {
+    logger.info("Getting auth request with authConfig: " + JSON.toJSONString(authConfig) + " and redirectUri: " + redirectUri + " and tClass: " + tClass);
+
     AuthRequest authRequest = null;
     authConfig.setRedirectUri(redirectUri);
     try {
@@ -67,8 +69,10 @@ public class JustIdentityProvider extends AbstractOAuth2IdentityProvider<JustIde
       logger.info("authRequest: " + JSON.toJSONString(authRequest) + " with authConfig: " + JSON.toJSONString(authConfig));
     } catch (Exception e) {
       // can't
-      logger.error(e.getMessage());
+      logger.error("getting auth request met error: " + e.getMessage());
+      e.printStackTrace();
     }
+
     return authRequest;
   }
 
@@ -107,6 +111,7 @@ public class JustIdentityProvider extends AbstractOAuth2IdentityProvider<JustIde
     public Response authResponse(@QueryParam("state") String state,
                                  @QueryParam("code") String authorizationCode,
                                  @QueryParam("error") String error) {
+      logger.info("authResponse with state: " + state + " and authorizationCode: " + authorizationCode + " and error: " + error);
       AuthCallback authCallback = AuthCallback.builder().code(authorizationCode).state(state).build();
 
       String redirectUri = uriInfo.getAbsolutePath().toString();
