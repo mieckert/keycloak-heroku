@@ -113,6 +113,7 @@ public enum JustAuthKey {
     String codingGroupName = config.getCodingGroupName();
 
     AuthConfig.AuthConfigBuilder authConfigBuilder = justAuthKey.getAuthConfig().clientId(clientId).clientSecret(clientSecret);
+
     switch (justAuthKey) {
       case WEWORK:
         authConfigBuilder.agentId(agentId);
@@ -122,6 +123,8 @@ public enum JustAuthKey {
       case CODEING:
         // coding 的 codingGroupName 为 domainPrefix
         authConfigBuilder.domainPrefix(codingGroupName);
+      case DING_TALK:
+        authConfigBuilder.agentId("2458569211");
     }
 
     return authConfigBuilder.build();

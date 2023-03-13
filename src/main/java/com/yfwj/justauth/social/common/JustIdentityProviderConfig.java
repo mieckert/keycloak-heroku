@@ -12,6 +12,7 @@ public class JustIdentityProviderConfig extends OAuth2IdentityProviderConfig {
   private static final String AGENT_ID_KEY = "weworkAgentId";
   private static final String ALIPAY_PUBLIC_KEY = "alipayPublicKey";
   private static final String CODING_GROUP_NAME = "codingGroupName";
+  private static final String DINGTALK_AGENT_ID_KEY = "dingtalkAgentId";
 
   private JustAuthKey justAuthKey;
 

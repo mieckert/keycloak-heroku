@@ -45,8 +45,12 @@ public class JustIdentityProvider extends AbstractOAuth2IdentityProvider<JustIde
 
   public JustIdentityProvider(KeycloakSession session, JustIdentityProviderConfig config) {
     super(session, config);
+
+    logger.info("JustIdentityProvider config: " + JSON.toJSONString(config));
+
     JustAuthKey justAuthKey = config.getJustAuthKey();
     this.AUTH_CONFIG = JustAuthKey.getAuthConfig(config);
+    logger.info("JustIdentityProvider authConfig: " + JSON.toJSONString(AUTH_CONFIG));
     this.tClass = justAuthKey.getTClass();
   }
 
