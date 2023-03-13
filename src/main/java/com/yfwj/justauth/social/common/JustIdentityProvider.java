@@ -1,6 +1,7 @@
 package com.yfwj.justauth.social.common;
 
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -63,6 +64,7 @@ public class JustIdentityProvider extends AbstractOAuth2IdentityProvider<JustIde
     try {
       Constructor<? extends AuthDefaultRequest> constructor = tClass.getConstructor(AuthConfig.class);
       authRequest = constructor.newInstance(authConfig);
+      logger.info("authRequest: " + JSON.toJSONString(authRequest) + " with authConfig: " + JSON.toJSONString(authConfig));
     } catch (Exception e) {
       // can't
       logger.error(e.getMessage());
@@ -145,7 +147,7 @@ public class JustIdentityProvider extends AbstractOAuth2IdentityProvider<JustIde
     private Response errorIdentityProviderLogin(String message) {
       this.event.event(EventType.LOGIN);
       this.event.error("identity_provider_login_failure");
-      return ErrorPage.error(this.session, (AuthenticationSessionModel) null, Response.Status.BAD_GATEWAY, message);
+      return ErrorPage.error(this.session, null, Response.Status.BAD_GATEWAY, message);
     }
   }
 }
