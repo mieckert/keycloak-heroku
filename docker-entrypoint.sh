@@ -188,5 +188,5 @@ fi
 # Start Keycloak #
 ##################
 
-exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT -Dkeycloak.profile.feature.upload_scripts=enabled --command="module add --name=net.brickverse.test --resource=/opt/jboss/keycloak/providers/keycloak-justauth-12.0.1-jar-with-dependencies.jar"
+exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT -Dkeycloak.profile.feature.upload_scripts=enabled
 exit $?
