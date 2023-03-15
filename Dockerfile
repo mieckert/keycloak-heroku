@@ -27,6 +27,7 @@ COPY idps/wecom/templates/realm-identity-provider-wechat-work-ext.html \
 RUN sed -ie 's#<dependencies>#<dependencies><module name="org.infinispan" services="import"/>#' /opt/jboss/keycloak/modules/system/layers/keycloak/org/keycloak/keycloak-services/main/module.xml
 
 COPY  target/keycloak-justauth-12.0.1-jar-with-dependencies.jar /opt/jboss/keycloak/providers/
+COPY  target/keycloak-justauth-12.0.1-jar-with-dependencies.jar /opt/jboss/keycloak/standalone/deployments
 
 COPY  temp/* /opt/jboss/keycloak/themes/base/admin/resources/partials/
 COPY  ui/font_iconfont /opt/jboss/keycloak/themes/keycloak/common/resources/lib/font_iconfont
