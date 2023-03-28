@@ -91,6 +91,11 @@ public class CustomUserStorageProvider implements UserStorageProvider, Credentia
         return adapter;
     }
 
+    @Override
+    public UserModel getUserByUsername(RealmModel realm, String username) {
+        return this.getUserByUsername(username, realm);
+    }
+
     /**
      * 创建用户模型
      */

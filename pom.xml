@@ -30,6 +30,7 @@
       <groupId>org.keycloak</groupId>
       <artifactId>keycloak-server-spi</artifactId>
       <scope>provided</scope>
+      <version>13.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.keycloak</groupId>
