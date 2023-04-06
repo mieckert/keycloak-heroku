@@ -26,6 +26,5 @@ ENV KC_HOSTNAME_STRICT=false
 ENV KC_HOSTNAME_STRICT_HTTPS=false
 ENV KC_HTTP_ENABLED=true
 
-CMD ["-Djboss.http.port=$PORT"]
-
+CMD ["start-dev", "--hostname-strict=false", "--http-port=$PORT"]
 
