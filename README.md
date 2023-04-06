@@ -1,10 +1,10 @@
-# keycloak-heroku
+# 🔑 keycloak-heroku
 
 ---
 
 > 一键部署 Keycloak 到 Heroku 平台。 Deploy Keycloak to Heroku by just one click.
 
-## 中文版说明
+## 🇨🇳 中文版说明
 
 [![部署到 Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
@@ -15,9 +15,9 @@ Dyno，从而不需要付费，免费拥有一个 Keycloak 实例。
 ### 注意 ⚠️
 
 详见《[Free Arch: Bye-bye to Heroku - Jeff Tian的文章 - 知乎](https://zhuanlan.zhihu.com/p/567187898)》，Heroku 不再提供免费
-Dyno，因此，部署该项目到 Heroku，可能会产生费用。替代方案：部署到 Okteto。
+Dyno，因此，部署该项目到 Heroku，可能会产生费用。替代方案：部署到 Okteto 或者 Naptive 等免费的 k8s 集群☸️ 中。
 
-## 更多说明：
+## 📃 更多说明：
 
 - [FreeArch: 一键拥有你自己的身份认证平台 Keycloak！
   ](https://zhuanlan.zhihu.com/p/554534245)
@@ -27,7 +27,7 @@ Dyno，因此，部署该项目到 Heroku，可能会产生费用。替代方案
 
 ![https://api.star-history.com/svg?repos=jeff-tian/keycloak-heroku&type=Date](https://api.star-history.com/svg?repos=jeff-tian/keycloak-heroku&type=Date "Star History")
 
-## 开发
+## 💻 开发
 
 运行 quay.io 版本（默认部署到 k8s 集群的是这个版本）：
 
@@ -42,13 +42,13 @@ mvn clean install
 docker compose up -f docker-compose.heroku.yml --build
 ```
 
-## 欢迎问我！
+## 💵 欢迎问我！
 
 有任何相关问题，欢迎来知乎咨询：
 
 <a href="https://www.zhihu.com/consult/people/1073548674713423872" target="blank"><img src="https://first-go-vercel.vercel.app/api/dynamicimage" alt="向我咨询"/></a>
 
-## English README
+## 🇱🇷 English README
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 

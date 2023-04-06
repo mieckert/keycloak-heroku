@@ -22,7 +22,8 @@ COPY  target/keycloak-justauth-12.0.1-jar-with-dependencies.jar /opt/keycloak/pr
 
 COPY  target/keycloak-justauth-12.0.1-jar-with-dependencies.jar /opt/keycloak/deployments/
 
-ENV PROXY_ADDRESS_FORWARDING true
-ENV FRONTEND_URL https://keycloak-jeff-tian.cloud.okteto.net
+ENV KC_HOSTNAME_STRICT=false
+ENV KC_HOSTNAME_STRICT_HTTPS=false
+ENV KC_HTTP_ENABLED=true
 
-CMD ["start-dev", "--hostname-strict=false", "--proxy=passthrough"]
+CMD ["start", "--proxy=passthrough"]
