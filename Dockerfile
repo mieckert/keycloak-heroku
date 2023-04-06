@@ -1,4 +1,3 @@
-FROM openjdk:11.0.5-jdk as openjdk
 FROM quay.io/keycloak/keycloak:latest
 
 COPY idps/wechat-mobile/keycloak-services-social-weixin.jar \
@@ -27,4 +26,5 @@ ENV KC_HOSTNAME_STRICT=false
 ENV KC_HOSTNAME_STRICT_HTTPS=false
 ENV KC_HTTP_ENABLED=true
 
-CMD ["start", "--proxy=passthrough"]
+CMD ["start-dev", "--hostname-strict=false"]
+
