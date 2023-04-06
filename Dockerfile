@@ -26,6 +26,6 @@ ENV KC_HOSTNAME_STRICT=false
 ENV KC_HOSTNAME_STRICT_HTTPS=false
 ENV KC_HTTP_ENABLED=true
 
-CMD ["-b", "0.0.0.0", "-Djboss.http.port=$PORT"]
+CMD ["-Djboss.http.port=$PORT"]
 
 
