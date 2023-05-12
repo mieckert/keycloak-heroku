@@ -4,6 +4,15 @@
 
 > 一键部署 Keycloak 到 Heroku 平台。 Deploy Keycloak to Heroku by just one click.
 
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Jeff-Tian_keycloak-heroku&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=Jeff-Tian_keycloak-heroku)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Jeff-Tian_keycloak-heroku&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Jeff-Tian_keycloak-heroku)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Jeff-Tian_keycloak-heroku&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Jeff-Tian_keycloak-heroku)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Jeff-Tian_keycloak-heroku&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Jeff-Tian_keycloak-heroku)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Jeff-Tian_keycloak-heroku&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Jeff-Tian_keycloak-heroku)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Jeff-Tian_keycloak-heroku&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Jeff-Tian_keycloak-heroku)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Jeff-Tian_keycloak-heroku&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=Jeff-Tian_keycloak-heroku)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Jeff-Tian_keycloak-heroku&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=Jeff-Tian_keycloak-heroku)
+
 ## 🇨🇳 中文版说明
 
 [![部署到 Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
