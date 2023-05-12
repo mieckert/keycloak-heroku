@@ -29,14 +29,15 @@ Dyno，因此，部署该项目到 Heroku，可能会产生费用。替代方案
 
 ## 💻 开发
 
-运行 quay.io 版本（默认部署到 k8s 集群的是这个版本）：
+运行部署到 k8s 集群的版本
 
 ```shell
 mvn clean install
 docker compose up --build
 ```
 
-运行 jboss 版本（部署到 heroku 的是这个版本）：
+运行部署到 heroku 的版本：
+
 ```shell
 mvn clean install
 docker compose up -f docker-compose.heroku.yml --build
