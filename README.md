@@ -43,6 +43,14 @@ mvn clean install
 docker compose up -f docker-compose.heroku.yml --build
 ```
 
+在本地用 h2 数据库模拟部署到 heroku 的版本：
+
+```shell
+mvn clean install
+docker compose up -f docker-compose.local.yml --build
+open http://localhost:8080/
+```
+
 ## 💵 欢迎问我！
 
 有任何相关问题，欢迎来知乎咨询：
