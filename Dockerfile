@@ -16,8 +16,8 @@ COPY idps/wecom/templates/realm-identity-provider-wechat-work-ext.html \
 
 
 #COPY  temp/* /opt/keycloak/themes/base/admin/resources/partials
-COPY  ui/font_iconfont /opt/keycloak/themes/keycloak/common/resources/lib/font_iconfont
-COPY  ui/theme.properties /opt/keycloak/themes/keycloak/login/
+#COPY  ui/font_iconfont /opt/keycloak/themes/keycloak/common/resources/lib/font_iconfont
+#COPY  ui/theme.properties /opt/keycloak/themes/keycloak/login/
 COPY  target/keycloak-justauth-12.0.1-jar-with-dependencies.jar /opt/keycloak/providers/
 
 COPY  target/keycloak-justauth-12.0.1-jar-with-dependencies.jar /opt/keycloak/deployments/

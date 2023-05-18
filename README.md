@@ -49,14 +49,14 @@ docker compose up --build
 
 ```shell
 mvn clean install
-docker compose up -f docker-compose.heroku.yml --build
+docker compose -f docker-compose.heroku.yml up --build
 ```
 
 在本地用 h2 数据库模拟部署到 heroku 的版本：
 
 ```shell
 mvn clean install
-docker compose up -f docker-compose.local.yml --build
+docker compose -f docker-compose.local.yml up --build
 open http://localhost:8080/
 ```
 
