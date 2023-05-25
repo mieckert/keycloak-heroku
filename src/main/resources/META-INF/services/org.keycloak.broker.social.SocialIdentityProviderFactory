@@ -30,3 +30,4 @@ com.yfwj.justauth.social.LineIdentityProviderFactory
 com.yfwj.justauth.social.OktaIdentityProviderFactory
 com.yfwj.justauth.social.DingAccountIdentityProviderFactory
 com.yfwj.justauth.social.FeishuIdentityProviderFactory
+net.brickverse.test.EpicGamesIdentityProviderFactory
