@@ -1,4 +1,12 @@
-FROM quay.io/keycloak/keycloak:21.1.1
+ARG KEYCLOAK_VERSION=21.1.1
+
+FROM docker.io/maven:3.8.6-jdk-11 as mvn_builder
+COPY . /tmp
+RUN cd /tmp && mvn clean install
+
+FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} as builder
+COPY --from=mvn_builder /tmp/target/*.jar /opt/keycloak/providers/
+COPY --from=mvn_builder /tmp/target/*.jar /opt/keycloak/deployments/
 
 COPY idps/wechat-mobile/keycloak-services-social-weixin.jar \
     /opt/keycloak/providers/
@@ -18,13 +26,18 @@ COPY idps/wecom/templates/realm-identity-provider-wechat-work-ext.html \
 #COPY  temp/* /opt/keycloak/themes/base/admin/resources/partials
 #COPY  ui/font_iconfont /opt/keycloak/themes/keycloak/common/resources/lib/font_iconfont
 #COPY  ui/theme.properties /opt/keycloak/themes/keycloak/login/
-COPY  target/keycloak-justauth-12.0.1-jar-with-dependencies.jar /opt/keycloak/providers/
-
-COPY  target/keycloak-justauth-12.0.1-jar-with-dependencies.jar /opt/keycloak/deployments/
 
 ENV KC_HOSTNAME_STRICT=false
 ENV KC_HOSTNAME_STRICT_HTTPS=false
 ENV KC_HTTP_ENABLED=true
 
-CMD ["start-dev", "--hostname-strict=false", "--features=\"preview,scripts\""]
+USER 1000
+
+RUN /opt/keycloak/bin/kc.sh build --health-enabled=true
+
+FROM quay.io/keycloak/keycloak:$KEYCLOAK_VERSION
+COPY --from=builder /opt/keycloak/ /opt/keycloak/
+WORKDIR /opt/keycloak
+
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--hostname-strict=false", "--features=\"preview,scripts\""]
 
