@@ -145,7 +145,7 @@ public class JustIdentityProvider extends AbstractOAuth2IdentityProvider<JustIde
           federatedIdentity.setBrokerUserId(authUser.getUuid());
           federatedIdentity.setIdpConfig(config);
           federatedIdentity.setIdp(JustIdentityProvider.this);
-          federatedIdentity.setCode(state);
+//          federatedIdentity.setCode(state);
 
           return this.callback.authenticated(federatedIdentity);
         } else {
