@@ -25,7 +25,6 @@ COPY  target/keycloak-justauth-12.0.1-jar-with-dependencies.jar /opt/keycloak/de
 ENV KC_HOSTNAME_STRICT=false
 ENV KC_HOSTNAME_STRICT_HTTPS=false
 ENV KC_HTTP_ENABLED=true
-ENV PROXY_ADDRESS_FORWARDING true
-ENV FRONTEND_URL https://keycloak-jeff-tian.cloud.okteto.net
+ENV KC_HOSTNAME_URL=https://keycloak-jeff-tian.cloud.okteto.net
 
 CMD ["start", "--proxy=passthrough", "--db=postgres", "--db-url=$DB_URL", "--db-username=$DB_USERNAME", "--db-password=$DB_PASSWORD", "--features=\"preview,scripts\""]
