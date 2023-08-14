@@ -2,7 +2,6 @@ package net.brickverse.test;
 
 import lombok.SneakyThrows;
 import okhttp3.Headers;
-import okhttp3.Response;
 import javax.ws.rs.core.Response.Status;
 
 public class ResponseConverter {
