@@ -60,6 +60,13 @@ docker compose -f docker-compose.local.yml up --build
 open http://localhost:8080/
 ```
 
+在本地用 PostgreSQL 数据库模拟部署到 heroku 的版本：
+
+```shell
+docker compose -f docker-compose.local-postgres.yml up --build
+open http://localhost:8080/
+```
+
 ## 💵 欢迎问我！
 
 有任何相关问题，欢迎来知乎咨询：

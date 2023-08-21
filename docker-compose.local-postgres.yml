@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  keycloak:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      PORT: 8080
+      KC_DB: postgres
+      KC_DB_URL: "jdbc:postgresql://postgres:5432/keycloak"
+      KC_DB_USERNAME: postgres
+      KC_DB_PASSWORD: nopwd
+    ports:
+      - "8080:8080"
+      - "9990:9990"
+
+  postgres:
+    image: "postgres"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: nopwd
+    volumes:
+      - pg1:/var/lib/postgresql/data
+
+  adminer:
+    image: library/adminer:latest
+    restart: always
+    ports:
+      - "7777:8080"
+
+volumes:
+  pg1: ~
