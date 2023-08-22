@@ -1,4 +1,4 @@
-ARG KEYCLOAK_VERSION=21.1.1
+ARG KEYCLOAK_VERSION=22.0.1
 
 FROM docker.io/maven:3.8.6-jdk-11 as mvn_builder
 COPY . /tmp
