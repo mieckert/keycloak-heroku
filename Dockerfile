@@ -10,10 +10,6 @@ COPY --from=mvn_builder /tmp/target/*.jar /opt/keycloak/deployments/
 
 COPY idps/wechat-mobile/keycloak-services-social-weixin.jar \
     /opt/keycloak/providers/
-COPY idps/wechat-mobile/templates/realm-identity-provider-weixin-ext.html \
-    /opt/keycloak/themes/base/admin/resources/partials
-COPY idps/wechat-mobile/templates/realm-identity-provider-weixin.html \
-    /opt/keycloak/themes/base/admin/resources/partials
 
 COPY idps/wecom/keycloak-services-social-wechat-work.jar \
     /opt/keycloak/providers/
