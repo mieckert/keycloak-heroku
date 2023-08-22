@@ -29,6 +29,7 @@ ENV KC_HTTP_ENABLED=true
 ENV PROXY_ADDRESS_FORWARDING=true
 ENV REDIRECT_SOCKET=proxy-https
 ENV FRONTEND_URL=https://keycloak.jiwai.win
+ENV KC_HOSTNAME_URL=https://keycloak.jiwai.win
 
 USER 1000
 
