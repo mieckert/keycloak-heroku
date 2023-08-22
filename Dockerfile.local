@@ -1,8 +1,6 @@
 ARG KEYCLOAK_VERSION=22.0.1
 
-FROM docker.io/maven:3.8.7-openjdk-18 as mvn_builder
-COPY . /tmp
-RUN cd /tmp && mvn dependency:go-offline && mvn package -DskipTests
+FROM docker.io/library/keycloak-builder as mvn_builder
 
 FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} as builder
 COPY --from=mvn_builder /tmp/target/*.jar /opt/keycloak/providers/
@@ -10,10 +8,6 @@ COPY --from=mvn_builder /tmp/target/*.jar /opt/keycloak/deployments/
 
 COPY idps/wechat-mobile/keycloak-services-social-weixin.jar \
     /opt/keycloak/providers/
-COPY idps/wechat-mobile/templates/realm-identity-provider-weixin-ext.html \
-    /opt/keycloak/themes/base/admin/resources/partials
-COPY idps/wechat-mobile/templates/realm-identity-provider-weixin.html \
-    /opt/keycloak/themes/base/admin/resources/partials
 
 COPY idps/wecom/keycloak-services-social-wechat-work.jar \
     /opt/keycloak/providers/
@@ -21,7 +15,6 @@ COPY idps/wecom/templates/realm-identity-provider-wechat-work.html \
     /opt/keycloak/themes/base/admin/resources/partials
 COPY idps/wecom/templates/realm-identity-provider-wechat-work-ext.html \
     /opt/keycloak/themes/base/admin/resources/partials
-
 
 #COPY  temp/* /opt/keycloak/themes/base/admin/resources/partials
 #COPY  ui/font_iconfont /opt/keycloak/themes/keycloak/common/resources/lib/font_iconfont
