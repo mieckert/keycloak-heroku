@@ -26,6 +26,8 @@ COPY idps/wecom/templates/realm-identity-provider-wechat-work-ext.html \
 ENV KC_HOSTNAME_STRICT=false
 ENV KC_HOSTNAME_STRICT_HTTPS=false
 ENV KC_HTTP_ENABLED=true
+ENV PROXY_ADDRESS_FORWARDING=true
+ENV REDIRECT_SOCKET=proxy-https
 
 USER 1000
 
