@@ -23,7 +23,6 @@ COPY idps/wecom/templates/realm-identity-provider-wechat-work-ext.html \
 #COPY  ui/font_iconfont /opt/keycloak/themes/keycloak/common/resources/lib/font_iconfont
 #COPY  ui/theme.properties /opt/keycloak/themes/keycloak/login/
 
-ENV KC_HOSTNAME_STRICT=true
 ENV KC_HOSTNAME_STRICT_HTTPS=true
 ENV KC_HTTP_ENABLED=false
 ENV PROXY_ADDRESS_FORWARDING=true
@@ -39,6 +38,6 @@ FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 WORKDIR /opt/keycloak
 
-CMD ["start", "--http-port=$PORT", "--proxy=passthrough", "--db=postgres", "--db-url=$DB_URL", "--db-username=$DB_USERNAME", "--db-password=$DB_PASSWORD", "--features=\"preview,scripts\""]
+CMD ["start", "--hostname-strict=true", "--http-port=$PORT", "--proxy=passthrough", "--db=postgres", "--db-url=$DB_URL", "--db-username=$DB_USERNAME", "--db-password=$DB_PASSWORD", "--features=\"preview,scripts\""]
 
 
