@@ -25,9 +25,9 @@ COPY idps/wecom/templates/realm-identity-provider-wechat-work-ext.html \
 
 ENV KC_HOSTNAME_STRICT_HTTPS=true
 ENV KC_HTTP_ENABLED=false
-ENV PROXY_ADDRESS_FORWARDING=true
-ENV REDIRECT_SOCKET=proxy-https
-ENV FRONTEND_URL=https://keycloak.jiwai.win
+ENV KC_PROXY_ADDRESS_FORWARDING=true
+ENV KC_REDIRECT_SOCKET=proxy-https
+ENV KC_FRONTEND_URL=https://keycloak.jiwai.win
 ENV KC_HOSTNAME_URL=https://keycloak.jiwai.win
 
 USER 1000
@@ -38,6 +38,6 @@ FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 WORKDIR /opt/keycloak
 
-CMD ["start", "--hostname-strict=true", "--http-port=$PORT", "--proxy=passthrough", "--db=postgres", "--db-url=$DB_URL", "--db-username=$DB_USERNAME", "--db-password=$DB_PASSWORD", "--features=\"preview,scripts\""]
+CMD ["start", "--hostname-strict=false", "--http-port=$PORT", "--proxy=passthrough", "--db=postgres", "--db-url=$DB_URL", "--db-username=$DB_USERNAME", "--db-password=$DB_PASSWORD", "--features=\"preview,scripts\""]
 
 
